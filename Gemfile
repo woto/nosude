@@ -36,6 +36,12 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
+  gem 'pry-nav'
+  gem 'pry'
+  gem 'pry-rescue'
+  gem 'pry-stack_explorer'
+  gem 'pry-doc'
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -43,3 +49,10 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'devise'
+gem 'carrierwave'
+gem 'bootstrap-sass'
+gem 'ckpages', github: 'woto/ckpages'
+gem 'mini_magick'
+gem 'simple_form'
+gem 'puma'
