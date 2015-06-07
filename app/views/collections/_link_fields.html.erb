@@ -1,0 +1,13 @@
+<%# TODO https://github.com/nathanvda/cocoon/issues/293 %>
+
+<% if f.object.marked_for_destruction? %>
+  <%= hidden_field_tag("#{f.object_name}[_destroy]", '1') %>
+<% else %>
+  <div class="nested-fields well">
+    <%= f.input :collectionable_type, as: :hidden %>
+    <%= f.fields_for :collectionable do |c| %>
+        <%= c.input :url %>
+    <% end %>
+    <%= link_to_remove_association "Удалить", f, data: {confirm: 'Уверены, что хотите удалить?'} %>
+  </div>
+<% end %>

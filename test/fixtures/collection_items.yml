@@ -1,0 +1,7 @@
+one:
+  collection: one
+  collectionable: one (Photo)
+
+two:
+  collection: one 
+  collectionable: one (Link) 

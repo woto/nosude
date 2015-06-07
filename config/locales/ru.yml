@@ -133,6 +133,7 @@ ru:
   errors:
     format: "%{attribute} %{message}"
     messages:
+      extension_white_list_error: файл не является изображением
       accepted: нужно подтвердить
       blank: не может быть пустым
       present: нужно оставить пустым

@@ -1,0 +1,4 @@
+one:
+  title: Популярное
+  path: /
+  content: <div class="page-header"> <h1>Популярные коллекции</h1> </div> <p>[[popular_collections]]</p>

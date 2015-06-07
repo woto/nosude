@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150606182920) do
+ActiveRecord::Schema.define(version: 20150607094730) do
 
   create_table "ckpages_pages", force: :cascade do |t|
     t.text     "path"
@@ -47,6 +47,47 @@ ActiveRecord::Schema.define(version: 20150606182920) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "collection_items", force: :cascade do |t|
+    t.integer  "collection_id"
+    t.integer  "collectionable_id"
+    t.string   "collectionable_type"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "collection_items", ["collection_id"], name: "index_collection_items_on_collection_id"
+  add_index "collection_items", ["collectionable_type", "collectionable_id"], name: "collectionable"
+
+  create_table "collections", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "title"
+  end
+
+  add_index "collections", ["user_id"], name: "index_collections_on_user_id"
+
+  create_table "links", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "collectionable_id"
+    t.string   "collectionable_type"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "links", ["collectionable_type", "collectionable_id"], name: "index_links_on_collectionable_type_and_collectionable_id"
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "image"
+    t.integer  "collectionable_id"
+    t.string   "collectionable_type"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "photos", ["collectionable_type", "collectionable_id"], name: "index_photos_on_collectionable_type_and_collectionable_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

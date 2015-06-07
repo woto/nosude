@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -56,5 +57,12 @@ Rails.application.routes.draw do
   #   end
 
   mount Ckpages::Engine => "/ckpages"
+
+  resources :collections
+
+  scope :collections do
+    root to: "collections#index", as: :user_root
+  end
+
 
 end

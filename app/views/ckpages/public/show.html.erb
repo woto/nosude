@@ -1,4 +1,19 @@
 <% @meta_title = @page.title %>
-<%== @page.content %>
 
-<%= link_to 'edit page', edit_page_path(@page) %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+
+      <% begin %>
+        <%== @page.content.gsub(/\[\[(.*)\]\]/) { eval $1 } %>
+      <% rescue StandardError => e %>
+        <%= e %>
+      <% end %>
+
+      <br>
+
+      <%= link_to 'edit page', edit_page_path(@page), class: 'btn btn-warning' %>
+
+    </div>
+  </div>
+</div>
